@@ -1,0 +1,21 @@
+/*#wp-plusfriend-buttons {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+}
+*/
+/*#wp-plusfriend-buttons > div {
+    display: inline-block;
+}*/
+
+#plusfriend-addfriend-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+}
+
+#plusfriend-chat-button {
+    float: left;
+}
