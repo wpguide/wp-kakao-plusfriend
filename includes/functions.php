@@ -5,15 +5,16 @@
  */
 
 namespace KakaoPlusfriend;
+
+use KakaoPlusfriend\Settings;
 use \WP_Error as WP_Error;
 
 // Default setup routine
 function setup() {
-    add_action( 'init', __NAMESPACE__ . '\\init' );
-    add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets' );
-    add_action( 'wp_footer', __NAMESPACE__ . '\\add_the_script' );
+    add_action( 'init', __NAMESPACE__ . '\init' );
+    add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
+    add_action( 'wp_footer', __NAMESPACE__ . '\add_the_script' );
 }
-
 
 // Initializes the plugin
 function init() {
@@ -48,19 +49,24 @@ function enqueue_assets() {
  *
  */
 function add_the_script() {
-    $options = get_option( 'kakao_plusfriend_settings' ); 
+    // $options = get_option( 'kakao_plusfriend_settings' );
+    $settings = Settings\get_settings();
 ?>
 <div id="plusfriend-addfriend-button"></div>
+<?php if ( $settings['friend_btn'] ) { ?>
 <script type='text/javascript'>
-  //<![CDATA[
-      Kakao.init('<?php echo $options['app_key']; ?>');
-      Kakao.PlusFriend.createAddFriendButton({
-      container: '#plusfriend-addfriend-button',
-      plusFriendId: '<?php echo $options['plusfriend_id']; ?>'
-    });
-  //]]>
+    //<![CDATA[
+        Kakao.init('<?php echo $settings['app_key']; ?>');
+        Kakao.PlusFriend.createAddFriendButton({
+            container: '#plusfriend-addfriend-button',
+            plusFriendId: '<?php echo $settings['plusfriend_id']; ?>',
+            size: '<?php echo $settings['friend_btn_size']; ?>',
+            color: '<?php echo $settings['friend_btn_color']; ?>'
+        });
+    //]]>
 </script>
 <?php    
+  }    
 }
 
 
