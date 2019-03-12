@@ -49,24 +49,40 @@ function enqueue_assets() {
  *
  */
 function add_the_script() {
-    // $options = get_option( 'kakao_plusfriend_settings' );
     $settings = Settings\get_settings();
+    if ( $settings['friend_btn'] || $settings['chat_btn'] ) {
+        if ( $settings['friend_btn'] ) echo '<div id="plusfriend-addfriend-button"></div>';    
+        if ( $settings['chat_btn'] ) echo '<div id="plusfriend-chat-button"></div>';
 ?>
-<div id="plusfriend-addfriend-button"></div>
-<?php if ( $settings['friend_btn'] ) { ?>
-<script type='text/javascript'>
-    //<![CDATA[
-        Kakao.init('<?php echo $settings['app_key']; ?>');
-        Kakao.PlusFriend.createAddFriendButton({
-            container: '#plusfriend-addfriend-button',
-            plusFriendId: '<?php echo $settings['plusfriend_id']; ?>',
-            size: '<?php echo $settings['friend_btn_size']; ?>',
-            color: '<?php echo $settings['friend_btn_color']; ?>'
-        });
-    //]]>
-</script>
-<?php    
-  }    
+        <script type='text/javascript'>
+            //<![CDATA[
+                Kakao.init('<?php echo $settings['app_key']; ?>');
+                <?php if ( $settings['friend_btn'] ) { ?>    
+                    Kakao.PlusFriend.createAddFriendButton({
+                        container: '#plusfriend-addfriend-button',
+                        plusFriendId: '<?php echo $settings['plusfriend_id']; ?>',
+                        size: '<?php echo $settings['friend_btn_size']; ?>',
+                        color: '<?php echo $settings['friend_btn_color']; ?>',
+                        supportMultipleDensities: <?php echo ($settings['friend_btn_supportMultipleDensities'] ? 
+                            'true' : 'false'); ?>
+                    }); 
+                <?php } ?>
+                <?php if ( $settings['chat_btn'] ) { ?>    
+                    Kakao.PlusFriend.createChatButton({
+                        container: '#plusfriend-chat-button',
+                        plusFriendId: '<?php echo $settings['plusfriend_id']; ?>',
+                        title: '<?php echo $settings['chat_btn_title']; ?>',
+                        size: '<?php echo $settings['chat_btn_size']; ?>',
+                        color: '<?php echo $settings['chat_btn_color']; ?>',
+                        shape: '<?php echo $settings['chat_btn_shape']; ?>',
+                        supportMultipleDensities: <?php echo ($settings['friend_btn_supportMultipleDensities'] ? 
+                            'true' : 'false'); ?>
+                    });
+                <?php } ?>
+            //]]>
+        </script>
+<?php                    
+    }
 }
 
 

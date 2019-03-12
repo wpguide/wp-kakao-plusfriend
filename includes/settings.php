@@ -11,10 +11,15 @@ function get_settings() {
         'app_key'       => '',
         'plusfriend_id' => '',
         'friend_btn' => 0,
-        'friend_btn_size'   => 'large',
+        'friend_btn_size'   => 'small',
         'friend_btn_color'  => 'yellow',
         'friend_btn_supportMultipleDensities' => 0,
-        'chat_btn' => 0 
+        'chat_btn'  => 0,
+        'chat_btn_title'    => 'consult', 
+        'chat_btn_size'     => 'small', 
+        'chat_btn_color'    => 'yellow', 
+        'chat_btn_shape'    => 'pc', 
+        'chat_btn_supportMultipleDensities' => 0 
     ];
     $settings = get_option( 'kakao_plusfriend_settings', [] );
     $settings = wp_parse_args( $settings, $defaults );
@@ -46,19 +51,12 @@ function settings_menu() {
 // Register and define the settings
 function settings_init() {
     register_setting( 'kakao_plusfriend_settings', 'kakao_plusfriend_settings' );
-    // add_settings_section(
-    //     'kakao-plusfriend-general',
-    //     'General Settings',
-    //     __NAMESPACE__ . '\\general_section',
-    //     'kakao-plusfriend'
-    // );
-    // add_settings_field( 'app_key', 'APP KEY', __NAMESPACE__ . '\\display_app_key_field', 'kakao-plusfriend', 'kakao-plusfriend-general' );
 }
 
 // Render the settings page
 function kakao_plusfriend_settings_page() {
     $settings = get_settings();
-    var_dump( $settings );
+    // var_dump( $settings );
 ?>
     <div class="wrap">
         <h2>Kakao Plusfriend Settings</h2>
@@ -130,9 +128,9 @@ function kakao_plusfriend_settings_page() {
                     <th scope="row">supportMultipleDensities</th>
                     <td>
                         <label><input type="checkbox" 
-                           name="kakao_plusfriend_settings[friend_btn_upportMultipleDensities]" 
+                           name="kakao_plusfriend_settings[friend_btn_supportMultipleDensities]" 
                            value="1" 
-                           <?php checked( 1, $settings['friend_btn_upportMultipleDensities'] ); ?> />
+                           <?php checked( 1, $settings['friend_btn_supportMultipleDensities'] ); ?> />
                         </label>
                         <p class="description">화면 배율에 따라 2x 3x 이미지를 사용, IE 미지원</p>    
                     </td>
@@ -149,6 +147,84 @@ function kakao_plusfriend_settings_page() {
                     웹페이지에 플러스친구 1:1 채팅 버튼을 생성합니다.
                 </label>
             </p>
+
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">Title
+                        <p class="description">1:1 채팅 버튼에 들어갈 제목</p>    
+                    </th>
+                    <td>
+                        <label><input type="radio" 
+                            name="kakao_plusfriend_settings[chat_btn_title]" 
+                            value="consult"  
+                            <?php checked( 'consult', $settings['chat_btn_title'] ); ?> />consult</label>
+                        <br>    
+                        <label><input type="radio" 
+                            name="kakao_plusfriend_settings[chat_btn_title]" 
+                            value="question"  
+                            <?php checked( 'question', $settings['chat_btn_title'] ); ?> />question</label>
+                    </td>
+                </tr>    
+                <tr valign="top">
+                    <th scope="row">Size
+                        <p class="description">1:1 채팅 버튼의 사이즈</p>    
+                    </th>
+                    <td>
+                        <label><input type="radio" 
+                            name="kakao_plusfriend_settings[chat_btn_size]" 
+                            value="small"  
+                            <?php checked( 'small', $settings['chat_btn_size'] ); ?> />small</label>
+                        <br>    
+                        <label><input type="radio" 
+                            name="kakao_plusfriend_settings[chat_btn_size]" 
+                            value="large"  
+                            <?php checked( 'large', $settings['chat_btn_size'] ); ?> />large</label>
+                    </td>
+                </tr>    
+                <tr valign="top">
+                    <th scope="row">Color
+                        <p class="description">1:1 채팅 버튼의 배경색</p>    
+                    </th>
+                    <td>
+                        <label><input type="radio" 
+                            name="kakao_plusfriend_settings[chat_btn_color]" 
+                            value="yellow"  
+                            <?php checked( 'yellow', $settings['chat_btn_color'] ); ?> />yellow</label>
+                        <br>    
+                        <label><input type="radio" 
+                            name="kakao_plusfriend_settings[chat_btn_color]" 
+                            value="mono"  
+                            <?php checked( 'mono', $settings['chat_btn_color'] ); ?> />mono</label>
+                    </td>
+                </tr>    
+                <tr valign="top">
+                    <th scope="row">Shape
+                        <p class="description">1:1 채팅 버튼의 모양</p>    
+                    </th>
+                    <td>
+                        <label><input type="radio" 
+                            name="kakao_plusfriend_settings[chat_btn_shape]" 
+                            value="pc"  
+                            <?php checked( 'pc', $settings['chat_btn_shape'] ); ?> />pc</label>
+                        <br>    
+                        <label><input type="radio" 
+                            name="kakao_plusfriend_settings[chat_btn_shape]" 
+                            value="mobile"  
+                            <?php checked( 'mobile', $settings['chat_btn_shape'] ); ?> />mobile</label>
+                    </td>
+                </tr>    
+                <tr valign="top">
+                    <th scope="row">supportMultipleDensities</th>
+                    <td>
+                        <label><input type="checkbox" 
+                           name="kakao_plusfriend_settings[chat_btn_supportMultipleDensities]" 
+                           value="1" 
+                           <?php checked( 1, $settings['chat_btn_supportMultipleDensities'] ); ?> />
+                        </label>
+                        <p class="description">화면 배율에 따라 2x 3x 이미지를 사용, IE 미지원</p>    
+                    </td>
+                </tr>    
+            </table>    
 
             <?php submit_button(); ?>
         </form>    
