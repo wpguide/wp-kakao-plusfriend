@@ -18,6 +18,25 @@ WP Kakao Plusfriend
 3. **플러스친구 추가 버튼** 또는 **플러스친구 1:1 채팅 버튼**을 활성화시킵니다.
 
 
+스타일 변경
+--
+
+이 플러그인에서 사용한 기본 CSS 스타일은 아래와 같으며, 사용자 사이트 환경에 맞게 자유롭게 스타일을 변경(override)하여 사용하면 됩니다.
+
+    #plusfriend-addfriend-button,
+    #plusfriend-chat-button {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+    #plusfriend-addfriend-button {
+        z-index: 998;
+    }
+    #plusfriend-chat-button {
+        z-index: 999;
+    }
+
+
 참고 문서
 --
 
