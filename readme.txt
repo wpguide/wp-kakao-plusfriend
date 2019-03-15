@@ -49,5 +49,5 @@ Automaticlly adds a flexible KakaoTalk Plusfriend button to your WordPress websi
 
 == Changelog ==
 
-= 0.1.0 - Mar 13, 2019 =
+= 0.1.0 - Mar 14, 2019 =
 * First release
