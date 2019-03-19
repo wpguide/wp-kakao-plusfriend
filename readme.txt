@@ -3,11 +3,11 @@ Contributors: sjoonk
 Tags: kakao, kakaotalk, plusfriend, 카카오톡, 플러스친구, 친구추가, 1:1채팅
 Requires at least: 4.5
 Tested up to: 5.1
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Automaticlly adds a flexible KakaoTalk Plusfriend button to your WordPress website that allows your visitor to add you as a KakaoTalk Plusfriend or chat with you.
+Automaticlly adds a flexible KakaoTalk Plusfriend button and/or 1:1 Chat button to your WordPress website.
 
 == Description ==
 
@@ -48,6 +48,9 @@ Automaticlly adds a flexible KakaoTalk Plusfriend button to your WordPress websi
 2. Screenshot of plugin in action
 
 == Changelog ==
+
+= 0.2.0 - Mar 19, 2019 =
+* Minor change on loading SDK init script
 
 = 0.1.0 - Mar 14, 2019 =
 * First release
