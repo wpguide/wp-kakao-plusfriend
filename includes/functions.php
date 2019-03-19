@@ -49,13 +49,13 @@ function enqueue_assets() {
  *
  */
 function add_the_script() {
-    $settings = Settings\get_settings(); ?>
-        <script type='text/javascript'>Kakao.init('<?php echo $settings['app_key']; ?>');</script>
-    <?php
-    if ( $settings['friend_btn'] || $settings['chat_btn'] ) {
-        if ( $settings['friend_btn'] ) echo '<div id="plusfriend-addfriend-button"></div>';    
-        if ( $settings['chat_btn'] ) echo '<div id="plusfriend-chat-button"></div>';
+    $settings = Settings\get_settings();
+    if ( $settings['friend_btn'] ) echo '<div id="plusfriend-addfriend-button"></div>';    
+    if ( $settings['chat_btn'] ) echo '<div id="plusfriend-chat-button"></div>'; 
 ?>
+<script type='text/javascript'>Kakao.init('<?php echo $settings['app_key']; ?>');</script>
+<?php
+    if ( $settings['friend_btn'] || $settings['chat_btn'] ) { ?>
         <script type='text/javascript'>
             //<![CDATA[
                 <?php if ( $settings['friend_btn'] ) { ?>    
