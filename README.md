@@ -8,7 +8,7 @@ https://wordpress.org/plugins/wp-kakao-plusfriend/
 --
 
 1. 워드프레스 플러그인 디렉터리에서 [WP Kakao Plusfriend](https://wordpress.org/plugins/wp-kakao-plusfriend/) 플러그인을 검색
-2. 플러그인 설치!
+2. 플러그인 설치 방법에 따라 설치!
 
 사용법
 --
