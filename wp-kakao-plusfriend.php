@@ -3,7 +3,7 @@
  * Plugin Name:     WP Kakao Plusfriend
  * Plugin URI:      https://github.com/wpguide/wp-kakao-plusfriend
  * Description:     워드프레스 사이트에 카카오 플러스친구 추가하기 버튼과 1:1 채팅 버튼을 사용할 수 있게 도와줍니다.
- * Version:         0.1.0
+ * Version:         0.2.0
  * Author:          Useful Paradigm
  * Author URI:      https://www.usefulparadigm.com/
  * License:         GPL2
@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Global constants
-define( 'KAKAO_PLUSFRIEND_VERSION', '0.1.0' );
+define( 'KAKAO_PLUSFRIEND_VERSION', '0.2.0' );
 define( 'KAKAO_PLUSFRIEND_URL', plugin_dir_url( __FILE__ ) );
 define( 'KAKAO_PLUSFRIEND_PATH', plugin_dir_path( __FILE__ ) );
 define( 'KAKAO_PLUSFRIEND_INC', KAKAO_PLUSFRIEND_PATH . 'includes/' );
