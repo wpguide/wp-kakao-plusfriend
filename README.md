@@ -2,13 +2,13 @@ WP Kakao Plusfriend
 ==
 
 이 플러그인은 워드프레스 사이트에 카카오톡 플러스친구 추가하기 버튼과 1:1 채팅 버튼을 사용할 수 있게 도와줍니다.
+https://wordpress.org/plugins/wp-kakao-plusfriend/
 
 플러그인 설치
 --
 
-1. [최신 플러그인 파일](https://github.com/wpguide/wp-kakao-plusfriend/archive/master.zip)을 다운로드 받습니다.
-2. 워드프레스 관리자 대시보드 "플러그인 > 새로 추가" 메뉴에서 "플러그인 업로드" 버튼을 눌러 플러그인을 업로드합니다.
-3. 플러그인을 활성화합니다. 
+1. 워드프레스 플러그인 디렉터리에서 [WP Kakao Plusfriend](https://wordpress.org/plugins/wp-kakao-plusfriend/) 플러그인을 검색
+2. 설치!
 
 사용법
 --
@@ -42,11 +42,6 @@ WP Kakao Plusfriend
 
 * [플러스친구 JavaScript 개발가이드](https://developers.kakao.com/docs/js/plusfriend)
 
-
-History
---
-
-* 2019-03-12 Version 0.1.0 First release
 
 License
 --
